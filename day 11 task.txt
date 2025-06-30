@@ -1,0 +1,44 @@
+Task-1
+mysql> select * from stu1;
++------+-----------+
+| sno  | sname     |
++------+-----------+
+|    1 | Rakshana  |
+|    2 | Reshma    |
+|    3 | Nithya    |
+|    4 | Devi      |
+|    5 | Dharshini |
++------+-----------+
+mysql> select * from mark1;
++------+-------+
+| sno  | marks |
++------+-------+
+|    1 |   100 |
+|    2 |    90 |
+|    3 |    95 |
+|    4 |    89 |
+|    5 |    87 |
++------+-------+
+
+mysql> select * from stu1
+    -> inner join mark1
+    -> on stu1.sno=mark1.sno;
++------+-----------+------+-------+
+| sno  | sname     | sno  | marks |    
++------+-----------+------+-------+
+|    1 | Harshu    |    1 |   100 |
+|    2 | Ishu      |    2 |    90 |
+|    3 | shree     |    3 |    95 |
+|    4 | Priya     |    4 |    89 |
+|    5 | Dharshini |    5 |    87 |
++------+-----------+------+-------+
+TASK2
+mysql> select sname
+    -> from stu1
+    -> where sno=(select min(sno)
+    -> from mark1);
++----------+
+| sname    |
++----------+
+| Harshu   |
++----------+
